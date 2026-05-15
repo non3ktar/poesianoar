@@ -1,0 +1,36 @@
+🚀 Fábrica de Áudios rodando em http://localhost:5005
+ * Serving Flask app 'app_fabrica'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5005
+ * Running on http://192.168.0.119:5005
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 182-295-987
+Traceback (most recent call last):
+  File "/home/sergio/Área de trabalho/pipe/app_fabrica.py", line 69, in gerar_audio
+    asyncio.run(run_tts())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/sergio/Área de trabalho/pipe/app_fabrica.py", line 67, in run_tts
+    await communicate.save(filepath)
+  File "/home/sergio/Área de trabalho/pipe/venv/lib/python3.12/site-packages/edge_tts/communicate.py", line 613, in save
+    async for message in self.stream():
+  File "/home/sergio/Área de trabalho/pipe/venv/lib/python3.12/site-packages/edge_tts/communicate.py", line 588, in stream
+    async for message in self.__stream():
+  File "/home/sergio/Área de trabalho/pipe/venv/lib/python3.12/site-packages/edge_tts/communicate.py", line 562, in __stream
+    raise NoAudioReceived(
+edge_tts.exceptions.NoAudioReceived: No audio was received. Please verify that your parameters are correct.
+127.0.0.1 - - [15/May/2026 13:20:44] "[35m[1mPOST /api/gerar HTTP/1.1[0m" 500 -
+127.0.0.1 - - [15/May/2026 13:21:00] "POST /api/gerar HTTP/1.1" 200 -
+🚀 Fábrica de Áudios rodando em http://localhost:5005
+❌ ERRO NO TTS: No audio was received. Please verify that your parameters are correct.

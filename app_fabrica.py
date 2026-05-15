@@ -20,14 +20,14 @@ if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w') as f:
         json.dump([], f)
 
-# Vozes pt-BR disponíveis no Edge TTS (3 Femininas, 3 Masculinas)
+# Vozes confirmadas e funcionando (3 Femininas, 3 Masculinas)
 VOICES = {
-    'Francisca': 'pt-BR-FranciscaNeural',  # Feminina
-    'Brenda': 'pt-BR-BrendaNeural',        # Feminina
-    'Yara': 'pt-BR-YaraNeural',            # Feminina
-    'Antonio': 'pt-BR-AntonioNeural',      # Masculina
-    'Donato': 'pt-BR-DonatoNeural',        # Masculina
-    'Julio': 'pt-BR-JulioNeural'           # Masculina
+    'Francisca': 'pt-BR-FranciscaNeural',
+    'Thalita': 'pt-BR-ThalitaMultilingualNeural',
+    'Ava': 'en-US-AvaMultilingualNeural',
+    'Antonio': 'pt-BR-AntonioNeural',
+    'Andrew': 'en-US-AndrewMultilingualNeural',
+    'Brian': 'en-US-BrianMultilingualNeural'
 }
 
 @app.route('/')
@@ -49,6 +49,7 @@ def gerar_audio():
     titulo = data.get('titulo')
     texto = data.get('texto')
     voz_nome = data.get('voz', 'Francisca')
+    velocidade = data.get('velocidade', '+0%')
     
     if not titulo or not texto:
         return jsonify({'error': 'Título e texto são obrigatórios'}), 400
@@ -62,7 +63,7 @@ def gerar_audio():
     try:
         # Usando Edge TTS via asyncio
         async def run_tts():
-            communicate = edge_tts.Communicate(texto, voz_id)
+            communicate = edge_tts.Communicate(texto, voz_id, rate=velocidade)
             await communicate.save(filepath)
 
         asyncio.run(run_tts())

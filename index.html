@@ -50,6 +50,12 @@
                 </div>
             </div>
 
+            <div class="form-group" style="margin-top: 1rem;">
+                <label for="velocidade">Velocidade da Leitura: <span id="velValue" style="color: var(--primary); font-weight: bold;">-15% (Mais Lento)</span></label>
+                <input type="range" id="velocidade" min="-50" max="50" value="-15" class="slider">
+                <small class="helper-text">✨ <b>Dica Vibe Coder:</b> Para poesias, velocidades entre -15% e -25% deixam a voz mais dramática. Para criar silêncios profundos entre os versos, use reticências ( ... ) ou pontos finais ( . ) extras no texto.</small>
+            </div>
+
             <button id="btnGerar" class="btn-primary">
                 <i data-lucide="zap"></i>
                 <span id="btnText">Sintetizar Áudio</span>

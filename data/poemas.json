@@ -1,5 +1,19 @@
 [
     {
+        "id": "25a6ec2b-5c94-4f6c-be3b-d805873b2541",
+        "titulo": "teste",
+        "texto": "O poeta.",
+        "voz": "Francisca",
+        "caminhoAudio": "audio/audio_7fea2180.mp3"
+    },
+    {
+        "id": "038e116c-7766-48fb-92e7-3da17c44d3e0",
+        "titulo": "teste",
+        "texto": "Este \u00e9 um teste normal",
+        "voz": "Francisca",
+        "caminhoAudio": "audio/audio_02fe501f.mp3"
+    },
+    {
         "id": "12b5a5b6-cf2b-4f32-8655-3e82711b3c02",
         "titulo": "Limites",
         "texto": "LIMITE 23:59\n\nO cabo negro e estriado serpenteava pelo piso de madeira enroscando aqui e ali nos m\u00f3veis estragados pelo tempo e seguia mesa acima,t\u00e3o esticado, que perecia poder partir-se a qualquer momento.\n\nSobre a mesa jazia um copo de papel, vazio, desses de anivers\u00e1rio, com motivos infantis: um palha\u00e7o com cabeleira colorida, serpentinas,confetes, l\u00edngua-de-sogra, tudo isso com muitas cores para fingir alegria e comemora\u00e7\u00e3o. Adiante, refletindo a luz de uma l\u00e2mpada incandescente, como uma serpente estreita e verde, escorria lentamente o l\u00edquido derramado do copo em dire\u00e7\u00e3o aos dedos finos e inertes de Teresa.\n\n23:58\nUm rel\u00f3gio despertador emoldurado por figuras de anjos barrocos cavalgava uma mesinha de cabeceira com duas gavetas entreabertas. Mais adiante, em diagonal, a sombra com gestos leves tingia a parede branca do quarto de Teresa.\n\nComo num sonho ruim, ela acordou sufocada pela secura do ar, os cabelos molhados de suor que tamb\u00e9m escorria por todo o corpo e abriu os olhos a tempo de ver-se atrav\u00e9s do espelho da penteadeira, flutuando como a assistente do m\u00e1gico no circo Eureka.\n\nNa sonol\u00eancia que ainda sentia, zonza e surpresa pela ins\u00f3lita situa\u00e7\u00e3o, Teresa n\u00e3o sabia se flutuava pelo quarto como um astronauta ou se o quarto era uma espa\u00e7onave que lhe acolhia com gentileza e a fazia sentir-se bem na incerteza dos fatos. O certo \u00e9 que agora sobrevoava a mesa da sala que ainda guardava os restos da festinha de anivers\u00e1rio do seu \u00fanico filho.\n\n23:57\nNo televisor ligado, Tom corria desesperadamente atr\u00e1s de Jerry e derrapava numa esquina como um carro no asfalto molhado.\n\n23:56\nTeresa im\u00f3vel na cama, n\u00e3o sabia da noite e o que esta lhe trazia. N\u00e3o sonhava, n\u00e3o cabia no tempo estreito que agora tinha.\n\n23:55\nA porta abriu com um leve estalo. Agigantando-se pela sala vazia, a sombra com chap\u00e9u atravessou o corredor esfregando-se ora numa parede, ora noutra, empurrada pelas luzes dos outros c\u00f4modos que se alternavam ao longo do caminho. Parou em frente \u00e0 porta do quarto onde Teresa dormia, empurrou-a devagar jogando uma tira de luz sobre as suas pernas brancas.",

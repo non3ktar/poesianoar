@@ -5,8 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaAudios = document.getElementById('listaAudios');
     const btnGerar = document.getElementById('btnGerar');
     const loading = document.getElementById('loading');
+    const velocidadeInput = document.getElementById('velocidade');
+    const velValue = document.getElementById('velValue');
     
     let selectedVoice = 'Francisca'; // Default
+
+    // Atualiza label da velocidade
+    velocidadeInput.addEventListener('input', (e) => {
+        let val = parseInt(e.target.value);
+        let prefix = val > 0 ? '+' : '';
+        if(val === 0) velValue.textContent = 'Normal';
+        else if(val > 0) velValue.textContent = `${prefix}${val}% (Mais Rápido)`;
+        else velValue.textContent = `${val}% (Mais Lento e Dramático)`;
+    });
 
     // Carrega vozes
     async function loadVoices() {
@@ -15,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const voices = await resp.json();
             
             voicesGrid.innerHTML = voices.map(v => {
-                const isFemale = ['Francisca', 'Brenda', 'Yara'].includes(v);
+                const isFemale = ['Francisca', 'Thalita', 'Ava'].includes(v);
                 const icon = isFemale ? 'user' : 'user';
                 const genderClass = isFemale ? 'female' : 'male';
                 
@@ -106,10 +117,14 @@ document.addEventListener('DOMContentLoaded', () => {
         loading.style.display = 'flex';
 
         try {
+            // Garante que o valor tem o sinal (+ ou -) para a API do Edge TTS
+            let speedVal = parseInt(velocidadeInput.value);
+            let speedStr = speedVal >= 0 ? `+${speedVal}%` : `${speedVal}%`;
+
             const resp = await fetch('/api/gerar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ titulo, texto, voz: selectedVoice })
+                body: JSON.stringify({ titulo, texto, voz: selectedVoice, velocidade: speedStr })
             });
 
             if(resp.ok) {
