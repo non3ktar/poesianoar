@@ -82,9 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="audio-badge">Voz: ${a.voz || 'Desconhecida'}</span>
                     </div>
                     <audio src="${a.caminhoAudio}" controls></audio>
-                    <button class="btn-copy" onclick="copiarLink('${a.caminhoAudio}', this)">
-                        <i data-lucide="link"></i> Copiar Link MP3
-                    </button>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="btn-copy" onclick="copiarLink('${a.caminhoAudio}', this)">
+                            <i data-lucide="link"></i> Copiar Link MP3
+                        </button>
+                        <a href="${a.caminhoAudio}" download="${a.titulo}.mp3" class="btn-copy" style="text-decoration: none;">
+                            <i data-lucide="download"></i> Baixar Arquivo
+                        </a>
+                    </div>
                 </div>
             `).join('');
             
