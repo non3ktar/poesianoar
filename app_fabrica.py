@@ -3,6 +3,7 @@ import json
 import uuid
 import asyncio
 import edge_tts
+import subprocess
 from flask import Flask, request, jsonify, send_from_directory
 
 app = Flask(__name__)
@@ -92,6 +93,23 @@ def gerar_audio():
         import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
+
+@app.route('/api/sincronizar', methods=['POST'])
+def sincronizar():
+    try:
+        # Executa os comandos git
+        subprocess.run(["git", "add", "."], check=True, cwd=BASE_DIR)
+        # Tenta fazer o commit, ignora se não houver mudanças
+        try:
+            subprocess.run(["git", "commit", "-m", "🎙️ add: novos audios via interface"], check=True, cwd=BASE_DIR)
+        except subprocess.CalledProcessError:
+            pass # Nada para commitar
+            
+        subprocess.run(["git", "push"], check=True, cwd=BASE_DIR)
+        return jsonify({'success': True, 'message': 'Sincronização concluída!'})
+    except Exception as e:
+        print(f"❌ ERRO NA SINCRONIZAÇÃO: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/<path:path>')
 def static_files(path):

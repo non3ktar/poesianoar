@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const velocidadeInput = document.getElementById('velocidade');
     const velValue = document.getElementById('velValue');
     const githubUrlInput = document.getElementById('githubUrl');
+    const btnSincronizar = document.getElementById('btnSincronizar');
+    const syncText = document.getElementById('syncText');
     
     // Carrega URL salva no localStorage
     const savedUrl = localStorage.getItem('github_pages_url');
@@ -158,6 +160,29 @@ document.addEventListener('DOMContentLoaded', () => {
             btnGerar.disabled = false;
             btnGerar.style.display = 'flex';
             loading.style.display = 'none';
+        }
+    });
+
+    // Sincronizar com GitHub
+    btnSincronizar.addEventListener('click', async () => {
+        btnSincronizar.disabled = true;
+        const originalText = syncText.textContent;
+        syncText.textContent = 'Sincronizando...';
+
+        try {
+            const resp = await fetch('/api/sincronizar', { method: 'POST' });
+            const result = await resp.json();
+
+            if(result.success) {
+                alert('Sincronização concluída com sucesso! 🚀');
+            } else {
+                alert('Erro na sincronização: ' + result.error);
+            }
+        } catch(e) {
+            alert('Erro de conexão ao sincronizar.');
+        } finally {
+            btnSincronizar.disabled = false;
+            syncText.textContent = originalText;
         }
     });
 
