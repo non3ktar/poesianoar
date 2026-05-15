@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const velocidadeInput = document.getElementById('velocidade');
     const velValue = document.getElementById('velValue');
+    const githubUrlInput = document.getElementById('githubUrl');
+    
+    // Carrega URL salva no localStorage
+    const savedUrl = localStorage.getItem('github_pages_url');
+    if (savedUrl) {
+        githubUrlInput.value = savedUrl;
+    }
+
+    // Salva URL no localStorage sempre que mudar
+    githubUrlInput.addEventListener('input', (e) => {
+        localStorage.setItem('github_pages_url', e.target.value.trim());
+    });
     
     let selectedVoice = 'Francisca'; // Default
 
