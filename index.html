@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fábrica de Áudio - UI Pro Max</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d0d12">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+
+    <main class="container">
+        <header class="app-header">
+            <div class="icon-wrapper">
+                <i data-lucide="mic-2"></i>
+            </div>
+            <div>
+                <h1 class="title-gradient">Voz Suprema</h1>
+                <p class="subtitle">Gerador de áudios premium com Edge TTS</p>
+            </div>
+        </header>
+
+        <section class="glass-card generator-card">
+            <div class="form-group">
+                <label for="titulo">Identificação do Áudio</label>
+                <input type="text" id="titulo" placeholder="Ex: Narração Página Inicial">
+            </div>
+
+            <div class="form-group">
+                <label for="texto">Texto para Narração</label>
+                <textarea id="texto" placeholder="Cole seu texto aqui. A inteligência artificial cuidará da entonação..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Selecionar Voz (Sensibilidade e Entonação Naturais)</label>
+                <div class="voices-grid" id="voicesGrid">
+                    <!-- Gerado via JS -->
+                </div>
+            </div>
+
+            <button id="btnGerar" class="btn-primary">
+                <i data-lucide="zap"></i>
+                <span id="btnText">Sintetizar Áudio</span>
+            </button>
+            <div id="loading" class="loading-state" style="display: none;">
+                <div class="spinner"></div>
+                <span>Criando sua obra-prima...</span>
+            </div>
+        </section>
+
+        <section class="glass-card config-card">
+            <div class="form-group">
+                <label for="githubUrl">Sua URL base do GitHub Pages (para links diretos):</label>
+                <input type="text" id="githubUrl" value="https://seunome.github.io/pipe/" placeholder="https://seu-usuario.github.io/seu-repo/">
+                <small class="helper-text">Usada para gerar os links de cópia dos .mp3</small>
+            </div>
+        </section>
+
+        <section class="glass-card library-card">
+            <h2 class="section-title">
+                <i data-lucide="library"></i>
+                Seus Áudios
+            </h2>
+            <div id="listaAudios" class="audio-list">
+                <!-- Preenchido via JS -->
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
